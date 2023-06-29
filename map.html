@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        function mapfunction(){
+
+           let value = document.getElementById('value').value
+           let todoList = new Set()
+           todoList.add(value)
+           printList();
+           document.getElementById('value').value="";
+        }
+        function printList(){
+            str="";
+         let todoList =   todoList.forEach(function(value,key,map){
+               str+=
+               `<tr>
+                <td>  ${value} </td>
+                <td><button id="${key}" onclick="deleteTask(this.id)">Delete</button></td>
+            </tr>`
+            })
+            document.getElementById("test").innerHTML=str;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="value" placeholder="enter the element">
+    <button onclick="mapfunction()">Add</button>
+     <table border="1" style="margin-top: 10px;" >
+            <thead>
+                <tr>
+                    <th>TaskName</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="test">
+
+            </tbody>
+        </table>
+
+</body>
+</html>
